@@ -35,6 +35,12 @@ jobs:
           exit-code: '1'
           severity: 'CRITICAL,HIGH'
 
+                - name: OPA Policy Check
+        uses: instrumenta/conftest-action@master
+        with:
+          files: k8s/deployment.yaml
+          policy: policies/
+
     - uses: actions/setup-node@v4
       with:
         node-version: 18
