@@ -50,6 +50,8 @@ jobs:
     name: Build and Push Docker Image
     needs: security
     runs-on: ubuntu-latest
+    env:
+      IMAGE_NAME: khushheeee/secure-cicd
     outputs:
       digest: ${{ steps.build.outputs.digest }}
     steps:
@@ -79,6 +81,6 @@ jobs:
     needs: build
     uses: ./.github/workflows/slsa.yml
     with:
-      image: khushheee/secure-cicd-slsa-platform
+      image: khushheeee/secure-cicd
       digest: ${{ needs.build.outputs.digest }}
     secrets: inherit
