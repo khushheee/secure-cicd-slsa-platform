@@ -1,7 +1,7 @@
 name: SLSA Provenance
 
 on:
-  workflow_call: # this makes it callable from other workflows
+  workflow_call:
     inputs:
       image:
         required: true
@@ -16,16 +16,16 @@ on:
         required: true
 
 permissions:
-  id-token: write # needed for SLSA
+  id-token: write
   contents: read
   packages: write
 
 jobs:
   provenance:
-    uses: slsa-framework/slsa-github-generator/.github/workflows/builder_container_slsa3.yml@v1.9.0
+    uses: slsa-framework/slsa-github-generator/.github/workflows/generator_container_slsa3.yml@v2.1.0
     with:
       image: ${{ inputs.image }}
       digest: ${{ inputs.digest }}
-    secrets: 
+    secrets:
       registry-username: ${{ secrets.DOCKER_USERNAME }}
       registry-password: ${{ secrets.DOCKER_PASSWORD }}
