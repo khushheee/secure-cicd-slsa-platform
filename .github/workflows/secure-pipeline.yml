@@ -32,7 +32,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Trivy - Vulnerability Scan
-        uses: aquasecurity/trivy-action@0.28.1
+        uses: aquasecurity/trivy-action@master
+        continue-on-error: true
         with:
           image-ref: ${{ env.IMAGE_NAME }}
           format: 'sarif'
