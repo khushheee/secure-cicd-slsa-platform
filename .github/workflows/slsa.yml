@@ -9,6 +9,11 @@ on:
       digest:
         required: true
         type: string
+    secrets:
+      DOCKER_USERNAME:
+        required: true
+      DOCKER_PASSWORD:
+        required: true
 
 permissions:
   id-token: write # needed for SLSA
