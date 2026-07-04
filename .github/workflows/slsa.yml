@@ -26,5 +26,6 @@ jobs:
     with:
       image: ${{ inputs.image }}
       digest: ${{ inputs.digest }}
+    secrets: 
       registry-username: ${{ secrets.DOCKER_USERNAME }}
       registry-password: ${{ secrets.DOCKER_PASSWORD }}
